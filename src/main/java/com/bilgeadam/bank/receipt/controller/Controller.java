@@ -28,11 +28,12 @@ public class Controller
 	private Customer chooseCustomer()
 	{
 		ArrayList<Customer> customers = customerDao.listAll();
+		System.out.println("\n\n*****************************************");
 		for (Customer customer : customers)
 		{
 			System.out.println("ID: " + customer.getOid() + " " + customer.getFirstName() + " " + customer.getLastName());
 		}
-		System.out.println("\n\nChoose ID of the customer (0 to exit).");
+		System.out.println("Choose ID of the customer (0 to exit).");
 		int selection = sc.nextInt();
 		
 		if (selection == 0)
@@ -71,7 +72,7 @@ public class Controller
 		+ transaction.getTransactionAmount() + transaction.getAccount().getAccountType().getMoneyType() + " via " + transaction.getIntermediary().getIntermediaryName() + " on " + transaction.getTransactionDate().toString());
 		}
 		
-		if (tlTransactions == null)
+		if (tlTransactions.size() == 0)
 		{
 			System.out.println("No TL transactions.");
 		}
@@ -88,7 +89,7 @@ public class Controller
 		+ transaction.getTransactionAmount() + transaction.getAccount().getAccountType().getMoneyType() + " via " + transaction.getIntermediary().getIntermediaryName() + " on " + transaction.getTransactionDate().toString());
 		}
 		
-		if (eurTransactions == null)
+		if (eurTransactions.size() == 0)
 		{
 			System.out.println("No EUR transactions.");
 		}
@@ -105,7 +106,7 @@ public class Controller
 		+ transaction.getTransactionAmount() + transaction.getAccount().getAccountType().getMoneyType() + " via " + transaction.getIntermediary().getIntermediaryName() + " on " + transaction.getTransactionDate().toString());
 		}
 		
-		if (usdTransactions == null)
+		if (usdTransactions.size() == 0)
 		{
 			System.out.println("No USD transactions.");
 		}
